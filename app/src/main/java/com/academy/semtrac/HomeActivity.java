@@ -1,15 +1,18 @@
 package com.academy.semtrac;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+
+import java.util.ArrayList;
 
 
 public class HomeActivity extends ActionBarActivity {
 
     private LinearLayout layout;
+    private Student student;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,19 @@ public class HomeActivity extends ActionBarActivity {
 
         layout = (LinearLayout) findViewById(R.id.home_layout);
 
+        student = new Student();
+        Semester semester = new Semester();
+        ArrayList<Subject> subjects = new ArrayList<>();
+        subjects.add(new Subject("DC"));
+        subjects.add(new Subject("SE"));
+        subjects.add(new Subject("OS"));
+        subjects.add(new Subject("DAA"));
+        subjects.add(new Subject("OS Lab"));
+        subjects.add(new Subject("SE Lab"));
+        subjects.add(new Subject("OOP"));
+        subjects.add(new Subject("DMS"));
+        semester.setSubjects(subjects);
+        student.setCurrentSemester(semester);
     }
 
 

@@ -8,6 +8,10 @@ public class Subject {
     int attendedClasses;
     double attendancePercentage;
 
+    public Subject(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
