@@ -7,3 +7,4 @@ public class Semester {
     double gradePointAverage;
     ArrayList<Subject> subjects;
 }
+
