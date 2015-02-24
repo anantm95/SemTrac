@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ public class HomeActivity extends ActionBarActivity {
         subjects.add(new Subject("DMS"));
         semester.setSubjects(subjects);
         student.setCurrentSemester(semester);
+
+        updatePage(student);
     }
 
 
@@ -57,5 +60,10 @@ public class HomeActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void updatePage(Student student) {
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        ArrayList<Button> buttons;
     }
 }

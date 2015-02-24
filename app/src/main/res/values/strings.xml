@@ -6,5 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_home">Home</string>
     <string name="hi">Hi,</string>
+    <string name="sample_subject">DMS</string>
+    <string name="sample_percent">88%</string>
 
 </resources>
