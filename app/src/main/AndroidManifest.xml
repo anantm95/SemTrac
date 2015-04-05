@@ -22,6 +22,10 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home" >
         </activity>
+        <activity
+            android:name=".FirstRunActivity"
+            android:label="@string/title_activity_first_run_options" >
+        </activity>
     </application>
 
 </manifest>

@@ -8,5 +8,6 @@
     <string name="hi">Hi,</string>
     <string name="sample_subject">DMS</string>
     <string name="sample_percent">88%</string>
+    <string name="title_activity_first_run_options">FirstRunOptions</string>
 
 </resources>
