@@ -1,61 +1,60 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_material_light"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    android:id="@+id/home_layout"
-    android:background="@color/background_material_light"
     tools:context="com.academy.semtrac.HomeActivity">
 
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/abc_text_size_large_material"
-        android:textColor="@color/background_floating_material_dark"
         android:text="@string/hi"
-        android:id="@+id/textView" />
+        android:textColor="@color/background_floating_material_dark"
+        android:textSize="@dimen/abc_text_size_large_material" />
 
     <TextView
+        android:id="@+id/studentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Anonymous"
-        android:id="@+id/studentName"
-        android:textSize="@dimen/size_of_name"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:text="@string/default_name"
         android:textColor="@color/background_floating_material_dark"
-        android:paddingBottom="@dimen/activity_vertical_margin" />
+        android:textSize="@dimen/size_of_name" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
-            android:layout_width="match_parent"
+            android:id="@+id/button"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sample_subject"
-            android:padding="10dp"
-            android:textSize="20sp"
-            android:textColor="@color/background_material_light"
             android:background="@color/button_material_dark"
             android:gravity="start|center_vertical"
-            android:id="@+id/button" />
+            android:padding="10dp"
+            android:text="@string/sample_subject"
+            android:textColor="@color/background_material_light"
+            android:textSize="20sp" />
 
         <Button
+            android:id="@+id/textView2"
             android:layout_width="75dp"
             android:layout_height="30dp"
+            android:layout_gravity="end|center_vertical"
             android:layout_margin="7dp"
+            android:background="@color/background_floating_material_dark"
             android:text="@string/sample_percent"
             android:textColor="@color/background_material_light"
-            android:textSize="20sp"
-            android:background="@color/background_floating_material_dark"
-            android:clickable="false"
-            android:id="@+id/textView2"
-            android:layout_gravity="end|center_vertical" />
+            android:textSize="20sp" />
 
     </FrameLayout>
 
