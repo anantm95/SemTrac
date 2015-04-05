@@ -1,5 +1,4 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_layout"
     android:layout_width="match_parent"
@@ -30,32 +29,10 @@
         android:textColor="@color/background_floating_material_dark"
         android:textSize="@dimen/size_of_name" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/button_material_dark"
-            android:gravity="start|center_vertical"
-            android:padding="10dp"
-            android:text="@string/sample_subject"
-            android:textColor="@color/background_material_light"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/textView2"
-            android:layout_width="75dp"
-            android:layout_height="30dp"
-            android:layout_gravity="end|center_vertical"
-            android:layout_margin="7dp"
-            android:background="@color/background_floating_material_dark"
-            android:text="@string/sample_percent"
-            android:textColor="@color/background_material_light"
-            android:textSize="20sp" />
-
-    </FrameLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/subjectRecycleView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:context=".HomeActivity" />
 
 </LinearLayout>

@@ -32,12 +32,13 @@ public class SplashActivity extends Activity {
             @Override
             public void onFinish() {
                 Intent intent;
-                if (firstTimeUse) {
+                if (!firstTimeUse) {
                     intent = new Intent(SplashActivity.this, com.academy.semtrac.FirstRunActivity.class);
                 } else {
                     intent = new Intent(SplashActivity.this, com.academy.semtrac.HomeActivity.class);
                 }
                 startActivity(intent);
+                finish();
             }
         }.start();
 
@@ -51,9 +52,9 @@ public class SplashActivity extends Activity {
         if (student != null) {
             Gson gson = new Gson();
             global.setStudent(gson.fromJson(student, Student.class));
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
     }
 }

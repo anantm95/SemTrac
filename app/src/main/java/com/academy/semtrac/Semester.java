@@ -3,9 +3,9 @@ package com.academy.semtrac;
 import java.util.ArrayList;
 
 public class Semester {
-    int number;
-    double gradePointAverage = 0.0;
-    ArrayList<Subject> subjects;
+    private int number;
+    private double gradePointAverage = 0.0;
+    private ArrayList<Subject> subjects;
 
     public int getNumber() {
         return number;

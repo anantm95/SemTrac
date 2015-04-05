@@ -3,10 +3,10 @@ package com.academy.semtrac;
 import java.util.ArrayList;
 
 public class Student {
-    String studentName = "Anonymous";
-    ArrayList<Semester> pastSemesters;
-    Semester currentSemester;
-    double cumulativeGradePointAverage = 0.0;
+    private String studentName = "Anonymous";
+    private ArrayList<Semester> pastSemesters;
+    private Semester currentSemester;
+    private double cumulativeGradePointAverage = 0.0;
 
     public String getStudentName() {
         return studentName;

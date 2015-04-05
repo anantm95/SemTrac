@@ -20,6 +20,23 @@
             dex="E:\Android\Projects\SemTrac\app\build\intermediates\pre-dexed\debug\classes-52a26408d109b03144935506db5752b263ccf8f3.jar" />
     </item>
     <item
+        jar="E:\Android\Projects\SemTrac\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex
+            dex="E:\Android\Projects\SemTrac\app\build\intermediates\pre-dexed\debug\classes-e5bf34968dfe16952f987b6a3754ca32629b1d54.jar" />
+    </item>
+    <item
+        jar="E:\Android\Projects\SemTrac\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex
+            dex="E:\Android\Projects\SemTrac\app\build\intermediates\pre-dexed\debug\classes-5c47bbdc92198406ad8c892e9666e34cd1b5d0fa.jar" />
+    </item>
+    <item jar="E:\Android\Projects\SemTrac\libs\gson-2.3.1.jar" jumboMode="false" revision="21.1.2"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex
+            dex="E:\Android\Projects\SemTrac\app\build\intermediates\pre-dexed\debug\gson-2.3.1-6ecb88bb02c51ee3614a1aa4622125821a20278b.jar" />
+    </item>
+    <item
         jar="E:\Android\Projects\SemTrac\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false" revision="21.1.2" sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
         <dex

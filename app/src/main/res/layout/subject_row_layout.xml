@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:clickable="false"
+    android:orientation="horizontal"
+    card_view:cardCornerRadius="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <Button
+            android:id="@+id/subject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:background="@color/button_material_dark"
+            android:gravity="start|center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/sample_subject"
+            android:textColor="@color/background_material_light"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/percent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@color/background_floating_material_dark"
+            android:text="@string/sample_percent"
+            android:textColor="@color/background_material_light"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

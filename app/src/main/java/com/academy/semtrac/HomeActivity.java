@@ -2,43 +2,35 @@ package com.academy.semtrac;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.LinearLayout;
-
-import java.util.ArrayList;
 
 
 public class HomeActivity extends ActionBarActivity {
 
-    private LinearLayout layout;
     private Student student;
+    private GlobalClass global;
+    private RecyclerView mRecyclerView;
+    private SubjectAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        global = (GlobalClass) getApplication();
+        student = global.getStudent();
 
-        layout = (LinearLayout) findViewById(R.id.home_layout);
+        mRecyclerView = (RecyclerView) findViewById(R.id.subjectRecycleView);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        student = new Student();
-        Semester semester = new Semester();
-        ArrayList<Subject> subjects = new ArrayList<>();
-        subjects.add(new Subject("DC"));
-        subjects.add(new Subject("SE"));
-        subjects.add(new Subject("OS"));
-        subjects.add(new Subject("DAA"));
-        subjects.add(new Subject("OS Lab"));
-        subjects.add(new Subject("SE Lab"));
-        subjects.add(new Subject("OOP"));
-        subjects.add(new Subject("DMS"));
-        semester.setSubjects(subjects);
-        student.setCurrentSemester(semester);
-
-        updatePage(student);
+        mAdapter = new SubjectAdapter(student.getCurrentSemester().getSubjects(),
+                R.layout.subject_row_layout, this);
+        mRecyclerView.setAdapter(mAdapter);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -60,10 +52,5 @@ public class HomeActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void updatePage(Student student) {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        ArrayList<Button> buttons;
     }
 }
