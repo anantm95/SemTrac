@@ -10,5 +10,12 @@
     <string name="sample_percent">88%</string>
     <string name="default_name">Anonymous</string>
     <string name="title_activity_first_run">FirstRunActivity</string>
+    <string name="update_attendance">Update Attendance</string>
+    <string name="add_new_subject">Add new subject</string>
+    <string name="wrap_up_semester">Wrap-up semester</string>
+    <string name="add_new_semester">Add new semester</string>
+    <string name="title_activity_new_test">NewTest</string>
+    <string name="title_activity_subject_info">SubjectInfo</string>
+    <string name="title_activity_subject_adder">SubjectAdderActivity</string>
 
 </resources>

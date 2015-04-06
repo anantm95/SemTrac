@@ -1,15 +1,35 @@
 package com.academy.semtrac;
 
 public class Subject {
-    String name;
-    String code;
-    int grade;
-    int totalClasses;
-    int attendedClasses;
-    double attendancePercentage;
+    private String name = "";
+    private String code = "";
+    private int credits;
+    private int grade;
+    private int totalClasses;
+    private int attendedClasses;
+    private Boolean coursePlanPresent;
+    private double attendancePercentage;
 
+    public Subject() {
+    }
     public Subject(String name) {
         this.name = name;
+    }
+
+    public Boolean getCoursePlanPresent() {
+        return coursePlanPresent;
+    }
+
+    public void setCoursePlanPresent(Boolean coursePlanPresent) {
+        this.coursePlanPresent = coursePlanPresent;
+    }
+
+    public int getCredits() {
+        return credits;
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
     }
 
     public String getName() {

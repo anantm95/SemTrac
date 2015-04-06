@@ -27,7 +27,7 @@ public class HomeActivity extends ActionBarActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        mAdapter = new SubjectAdapter(student.getCurrentSemester().getSubjects(),
+        mAdapter = new SubjectAdapter(null,//student.getCurrentSemester().getSubjects(),
                 R.layout.subject_row_layout, this);
         mRecyclerView.setAdapter(mAdapter);
     }
@@ -47,9 +47,9 @@ public class HomeActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        /*if (id == R.id.action_settings) {
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }

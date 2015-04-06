@@ -1,6 +1,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context="com.academy.semtrac.HomeActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.academy.semtrac.HomeActivity">
+
+    <item
+        android:id="@+id/update_attendance"
+        android:icon="@drawable/ic_action_edit"
+        android:orderInCategory="80"
+        android:title="@string/update_attendance"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/add_new_subject"
+        android:orderInCategory="90"
+        android:title="@string/add_new_subject"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/wrap_up_semester"
+        android:orderInCategory="100"
+        android:title="@string/wrap_up_semester"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/add_new_semester"
+        android:orderInCategory="110"
+        android:title="@string/add_new_semester"
+        app:showAsAction="never" />
 </menu>

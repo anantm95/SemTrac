@@ -7,6 +7,23 @@ public class Student {
     private ArrayList<Semester> pastSemesters;
     private Semester currentSemester;
     private double cumulativeGradePointAverage = 0.0;
+    private int creditsEarned;
+
+    public int getCreditsEarned() {
+        return creditsEarned;
+    }
+
+    public void setCreditsEarned(int creditsEarned) {
+        this.creditsEarned = creditsEarned;
+    }
+
+    public double getCumulativeGradePointAverage() {
+        return cumulativeGradePointAverage;
+    }
+
+    public void setCumulativeGradePointAverage(double cumulativeGradePointAverage) {
+        this.cumulativeGradePointAverage = cumulativeGradePointAverage;
+    }
 
     public String getStudentName() {
         return studentName;
