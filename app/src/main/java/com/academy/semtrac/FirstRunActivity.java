@@ -3,11 +3,9 @@ package com.academy.semtrac;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -19,7 +17,6 @@ public class FirstRunActivity extends ActionBarActivity {
     private EditText currentSem;
     private EditText cgpa;
     private EditText credits;
-    private TextView display;
     private Button proceed;
     private Student newStudent;
 
@@ -33,7 +30,6 @@ public class FirstRunActivity extends ActionBarActivity {
         cgpa = (EditText) findViewById(R.id.studentCgpa);
         credits = (EditText) findViewById(R.id.studentCredits);
         proceed = (Button) findViewById(R.id.proceedSubject);
-        display = (TextView) findViewById(R.id.displayCredits);
 
         newStudent = new Student();
 
@@ -88,20 +84,10 @@ public class FirstRunActivity extends ActionBarActivity {
 
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_first_run, menu);
-        return true;
-    }
-
     private void hideCredits(boolean hide) {
         if (hide) {
-            display.setVisibility(View.INVISIBLE);
             credits.setVisibility(View.INVISIBLE);
         } else {
-            display.setVisibility(View.VISIBLE);
             credits.setVisibility(View.VISIBLE);
         }
     }

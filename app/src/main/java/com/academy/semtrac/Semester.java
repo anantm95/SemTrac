@@ -30,5 +30,11 @@ public class Semester {
     public void setSubjects(ArrayList<Subject> subjects) {
         this.subjects = subjects;
     }
+
+    public void addSubject(Subject subject) {
+        if (subjects == null)
+            subjects = new ArrayList<>();
+        subjects.add(subject);
+    }
 }
 

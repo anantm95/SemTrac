@@ -1,39 +1,80 @@
 package com.academy.semtrac;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+
+import com.google.gson.Gson;
 
 
-public class NewTest extends ActionBarActivity {
+public class NewTest extends CustomActivity {
+
+    private final String error = "This field cannot be blank";
+    private EditText name;
+    private EditText weightage;
+    private EditText maxMarks;
+    private EditText marksObtained;
+    private Subject subject;
+    private GlobalClass global;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_test);
-    }
+        global = (GlobalClass) getApplication();
+        Gson gson = new Gson();
+        subject = gson.fromJson(getIntent().getStringExtra("subject"), Subject.class);
+        subject = global.getCurrentSubject();
+        name = (EditText) findViewById(R.id.testName);
+        weightage = (EditText) findViewById(R.id.testWeightage);
+        maxMarks = (EditText) findViewById(R.id.testMaxMarks);
+        marksObtained = (EditText) findViewById(R.id.testMarksObtained);
 
+        findViewById(R.id.testOK).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean allCool = true;
+                if (GlobalClass.isEmpty(name)) {
+                    name.setError(error);
+                    allCool = false;
+                }
+                if (GlobalClass.isEmpty(weightage)) {
+                    weightage.setError(error);
+                    allCool = false;
+                }
+                if (GlobalClass.isEmpty(maxMarks)) {
+                    maxMarks.setError(error);
+                    allCool = false;
+                }
+                if (GlobalClass.isEmpty(marksObtained)) {
+                    marksObtained.setError(error);
+                    allCool = false;
+                }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_new_test, menu);
-        return true;
-    }
+                if (allCool) {
+                    Test test = new Test();
+                    test.setName(name.getText().toString().trim());
+                    double weightageDouble = Double.parseDouble(weightage.getText().toString().trim());
+                    double total = Double.parseDouble(maxMarks.getText().toString().trim());
+                    double obtained = Double.parseDouble(marksObtained.getText().toString().trim());
+                    test.setWeightage(weightageDouble);
+                    test.setTotalMarks(total);
+                    test.setMarksObtained(obtained);
+                    subject.addTest(test);
+                    subject.incrementTotal(weightageDouble);
+                    subject.incrementObtained(obtained * weightageDouble / total);
+                    setResult(1);
+                    finish();
+                }
+            }
+        });
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        findViewById(R.id.testCancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(0);
+                finish();
+            }
+        });
     }
 }

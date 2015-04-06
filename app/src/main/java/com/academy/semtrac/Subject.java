@@ -1,5 +1,7 @@
 package com.academy.semtrac;
 
+import java.util.ArrayList;
+
 public class Subject {
     private String name = "";
     private String code = "";
@@ -8,12 +10,41 @@ public class Subject {
     private int totalClasses;
     private int attendedClasses;
     private Boolean coursePlanPresent;
-    private double attendancePercentage;
+    private double attendancePercentage = 100;
+    private double marksScored;
+    private double totalMarks;
+    private ArrayList<Test> tests;
 
     public Subject() {
     }
+
     public Subject(String name) {
         this.name = name;
+    }
+
+    public ArrayList<Test> getTests() {
+        return tests;
+    }
+
+    public void setTests(ArrayList<Test> tests) {
+        this.tests = tests;
+    }
+
+    public double getTotalMarks() {
+        return totalMarks;
+    }
+
+    public void setTotalMarks(double totalMarks) {
+        this.totalMarks = totalMarks;
+    }
+
+    public double getMarksScored() {
+
+        return marksScored;
+    }
+
+    public void setMarksScored(double marksScored) {
+        this.marksScored = marksScored;
     }
 
     public Boolean getCoursePlanPresent() {
@@ -65,14 +96,33 @@ public class Subject {
     }
 
     public double getAttendancePercentage() {
-        return attendancePercentage;
+        if (totalClasses == 0)
+            return 100;
+        else
+            return attendancePercentage;
     }
 
     public void incrementTotal() {
         totalClasses++;
+        attendancePercentage = attendedClasses * 100.0 / totalClasses;
     }
 
     public void incrementAttended() {
         attendedClasses++;
+        attendancePercentage = attendedClasses * 100.0 / totalClasses;
+    }
+
+    public void addTest(Test test) {
+        if (tests == null)
+            tests = new ArrayList<>();
+        tests.add(test);
+    }
+
+    public void incrementTotal(double marks) {
+        totalMarks += marks;
+    }
+
+    public void incrementObtained(double marks) {
+        marksScored += marks;
     }
 }

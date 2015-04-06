@@ -2,133 +2,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_material_light"
+    android:background="@color/dim_foreground_disabled_material_dark"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingTop="25dp"
     tools:context="com.example.anant.semtrac.NewTest">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15sp">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Test Name"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/background_floating_material_dark" />
-
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/testName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
             android:ems="10"
-            android:inputType="text"
-            android:textColor="@color/background_floating_material_dark" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15sp">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Weightage"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:hint="Test Name"
+            android:inputType="textCapWords"
             android:textColor="@color/background_floating_material_dark" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/testWeightage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
             android:ems="10"
+            android:hint="Weightage (in %)"
             android:inputType="number"
             android:textColor="@color/background_floating_material_dark" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15sp">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Maximum Marks"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/background_floating_material_dark" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/testMaxMarks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
             android:ems="10"
+            android:hint="Maximum Marks"
             android:inputType="number"
             android:textColor="@color/background_floating_material_dark" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15sp">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Marks Obtained"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/background_floating_material_dark" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/testMarksObtained"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
             android:ems="10"
+            android:hint="Marks Obtained"
             android:inputType="number"
             android:textColor="@color/background_floating_material_dark" />
-    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/testOK"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="80sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@color/background_floating_material_dark"
             android:text="OK"
-            android:textColor="@color/background_floating_material_dark" />
+            android:textColor="@color/background_material_light" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/testCancel"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="80sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
+            android:background="@color/background_floating_material_dark"
             android:text="Cancel"
-            android:textColor="@color/background_floating_material_dark" />
+            android:textColor="@color/background_material_light" />
     </LinearLayout>
-
 
 </LinearLayout>

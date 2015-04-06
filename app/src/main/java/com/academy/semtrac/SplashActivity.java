@@ -46,9 +46,9 @@ public class SplashActivity extends Activity {
     }
 
     private boolean initialiseUser() {
-        String SHARED_PREFS_FILE = "UserData";
-        SharedPreferences userData = getSharedPreferences(SHARED_PREFS_FILE, 0);
-        String student = userData.getString("userData", null);
+        String SHARED_PREFS_FILE = "com.academy.semtrac.STUDENT_DATA";
+        SharedPreferences studentData = getSharedPreferences(SHARED_PREFS_FILE, 0);
+        String student = studentData.getString("student", null);
         if (student != null) {
             Gson gson = new Gson();
             global.setStudent(gson.fromJson(student, Student.class));

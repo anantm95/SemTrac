@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
     android:layout_marginTop="10dp"
+    android:background="@color/background_material_dark"
     android:clickable="false"
     android:orientation="horizontal"
     card_view:cardCornerRadius="5dp">
@@ -13,6 +14,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/background_material_dark"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -20,26 +24,35 @@
             android:id="@+id/entry_subject_code"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:ems="10"
             android:hint="Enter course code"
-            android:inputType="textCapCharacters" />
+            android:inputType="textCapCharacters"
+            android:textColor="@color/background_material_light"
+            android:textColorHint="@color/background_material_light" />
 
         <EditText
             android:id="@+id/entry_subject_name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:ems="10"
             android:hint="Enter course name"
-            android:inputType="textCapWords" />
+            android:inputType="textCapWords"
+            android:textColor="@color/background_material_light"
+            android:textColorHint="@color/background_material_light" />
 
         <EditText
             android:id="@+id/entry_subject_credits"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:layout_weight="1"
             android:ems="10"
             android:hint="Enter the number of credits"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@color/background_material_light"
+            android:textColorHint="@color/background_material_light" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -50,14 +63,21 @@
                 android:id="@+id/entry_courseplan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Import Course Plan" />
+                android:background="@color/background_floating_material_dark"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Import Course Plan"
+                android:textColor="@color/background_material_light" />
 
             <TextView
                 android:id="@+id/entry_filename"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
                 android:text="None selected"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/background_material_light"
+                android:textSize="15sp" />
         </LinearLayout>
     </LinearLayout>
 

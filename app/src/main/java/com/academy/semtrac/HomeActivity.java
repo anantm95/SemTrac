@@ -1,5 +1,6 @@
 package com.academy.semtrac;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -7,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class HomeActivity extends ActionBarActivity {
@@ -15,6 +17,7 @@ public class HomeActivity extends ActionBarActivity {
     private GlobalClass global;
     private RecyclerView mRecyclerView;
     private SubjectAdapter mAdapter;
+    private TextView name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +25,13 @@ public class HomeActivity extends ActionBarActivity {
         setContentView(R.layout.activity_home);
         global = (GlobalClass) getApplication();
         student = global.getStudent();
-
+        name = (TextView) findViewById(R.id.studentName);
+        name.setText(global.getStudent().getStudentName().split(" ")[0]);
         mRecyclerView = (RecyclerView) findViewById(R.id.subjectRecycleView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        mAdapter = new SubjectAdapter(null,//student.getCurrentSemester().getSubjects(),
+        mAdapter = new SubjectAdapter(student.getCurrentSemester().getSubjects(),
                 R.layout.subject_row_layout, this);
         mRecyclerView.setAdapter(mAdapter);
     }
@@ -47,10 +51,17 @@ public class HomeActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_settings) {
+        if (id == R.id.update_attendance) {
+            startActivity(new Intent(this, com.academy.semtrac.ModifyAttendance.class));
             return true;
-        }*/
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mAdapter.notifyDataSetChanged();
     }
 }

@@ -1,6 +1,7 @@
 package com.academy.semtrac;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /*
@@ -33,13 +37,30 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(SubjectAdapter.ViewHolder holder, int position) {
-        Subject subject = subjects.get(position);
-        holder.percent.setText(subject.getAttendancePercentage() + "%");
-        holder.name.setText(subject.getCode() + ": " + subject.getName());
+        final Subject subject = subjects.get(position);
+        holder.percent.setText(new DecimalFormat("##.#").format(subject.getAttendancePercentage()) + "%");
+        String name = subject.getName();
+        if (name.length() > 3) {
+            String[] things = name.split(" ");
+            name = "";
+            for (String temp : things) {
+                name += temp.charAt(0);
+            }
+            if (things[things.length - 1].compareToIgnoreCase("Lab") == 0) {
+                name = name.substring(0, name.length() - 1) + " Lab";
+            }
+        }
+        holder.name.setText(subject.getCode() + ": " + name);
+        Gson gson = new Gson();
+        final String subjectText = gson.toJson(subject);
         holder.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO:Intent to next activity
+                Intent intent = new Intent(mContext, com.academy.semtrac.SubjectInfo.class);
+                GlobalClass globalClass = (GlobalClass) mContext.getApplicationContext();
+                globalClass.setCurrentSubject(subject);
+                intent.putExtra("subject", subjectText);
+                mContext.startActivity(intent);
             }
         });
     }
