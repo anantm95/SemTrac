@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class SubjectAdderActivity extends ActionBarActivity implements View.OnCl
     private LayoutInflater inflater;
     private LinearLayout mLayout;
     private ArrayList<View> views;
+    private ScrollView mScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class SubjectAdderActivity extends ActionBarActivity implements View.OnCl
         inflater = LayoutInflater.from(this);
         inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mLayout = (LinearLayout) findViewById(R.id.subjectLayout);
+        mScrollView = (ScrollView) findViewById(R.id.scrollView);
 
         addMore = (Button) findViewById(R.id.addMore);
         done = (Button) findViewById(R.id.done);
@@ -99,5 +102,11 @@ public class SubjectAdderActivity extends ActionBarActivity implements View.OnCl
 
         View cardView = inflater.inflate(R.layout.subject_entry_row_layout, mLayout);
         views.add(cardView);
+        mScrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
+            }
+        });
     }
 }
