@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
@@ -88,18 +89,25 @@ public class SubjectAdderActivity extends ActionBarActivity implements View.OnCl
                 break;
             case R.id.done:
                 for (int i = 0; i < newSubjects.size(); i++) {
-                    Subject subject = newSubjects.get(i);
+                    Subject subject = new Subject();
                     View view = views.get(i);
 
+                    EditText code = (EditText) view.findViewById(R.id.entry_subject_code);
+                    EditText name = (EditText) view.findViewById(R.id.entry_subject_name);
+                    EditText credits = (EditText) view.findViewById(R.id.entry_subject_credits);
 
+                    subject.setCode(code.getText().toString().trim());
+                    subject.setName(name.getText().toString().trim());
+                    subject.setCredits(Integer.parseInt(credits.getText().toString().trim()));
+
+                    newSubjects.add(subject);
                 }
+
+
         }
     }
 
     private void addViewToLayout() {
-        Subject newSubject = new Subject();
-        newSubjects.add(newSubject);
-
         View cardView = inflater.inflate(R.layout.subject_entry_row_layout, mLayout);
         views.add(cardView);
         mScrollView.post(new Runnable() {
