@@ -11,10 +11,11 @@ import android.widget.TextView;
 
 public class EditAttendance extends ActionBarActivity {
 
-    EditText totalClasses;
-    EditText classesAttended;
-    TextView subjectName;
-    GlobalClass global;
+    private final String error = "This field cannot be empty";
+    private EditText totalClasses;
+    private EditText classesAttended;
+    private TextView subjectName;
+    private GlobalClass global;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +32,22 @@ public class EditAttendance extends ActionBarActivity {
         findViewById(R.id.confirm).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                global.getCurrentSubject().setAttendedClasses(Integer.parseInt(classesAttended.getText().toString().trim()));
-                global.getCurrentSubject().setTotalClasses(Integer.parseInt(totalClasses.getText().toString().trim()));
-                finish();
+                if (GlobalClass.isEmpty(classesAttended))
+                    classesAttended.setError(error);
+                else if (GlobalClass.isEmpty(totalClasses))
+                    totalClasses.setError(error);
+                else {
+                    int attended = Integer.parseInt(classesAttended.getText().toString().trim());
+                    int total = Integer.parseInt(totalClasses.getText().toString().trim());
+
+                    if (attended > total)
+                        classesAttended.setError("Invalid entry");
+                    else {
+                        global.getCurrentSubject().setAttendedClasses(attended);
+                        global.getCurrentSubject().setTotalClasses(total);
+                        finish();
+                    }
+                }
             }
         });
     }

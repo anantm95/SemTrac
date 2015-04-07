@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import java.text.DecimalFormat;
+
 
 public class SubjectInfo extends ActionBarActivity implements View.OnClickListener {
 
@@ -76,6 +78,6 @@ public class SubjectInfo extends ActionBarActivity implements View.OnClickListen
         credits.setText("Credits: " + String.valueOf(subject.getCredits()));
         classesAttended.setText("Classes Attended: " + String.valueOf(subject.getAttendedClasses()));
         classesTotal.setText("Total Classes: " + String.valueOf(subject.getTotalClasses()));
-        marks.setText("Marks scored till date: " + subject.getMarksScored() + " on " + subject.getTotalMarks());
+        marks.setText("Marks scored till date: " + new DecimalFormat("##.##").format(subject.getMarksScored()) + " on " + new DecimalFormat("##.##").format(subject.getTotalMarks()));
     }
 }

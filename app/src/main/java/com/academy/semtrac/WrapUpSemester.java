@@ -44,30 +44,38 @@ public class WrapUpSemester extends ActionBarActivity {
         findViewById(R.id.confirm).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean allCool = true;
                 for (int i = 0; i < views.size(); i++) {
                     Subject subject = global.getStudent().getCurrentSemester().getSubjects().get(i);
                     EditText grade = (EditText) views.get(i).findViewById(R.id.grade);
+                    if (GlobalClass.isEmpty(grade)) {
+                        allCool = false;
+                        grade.setError("This field cannot be empty");
+                        break;
+                    }
                     subject.setGrade(Integer.parseInt(grade.getText().toString().trim()));
 
                     netProduct += subject.getCredits() * subject.getGrade();
                     totalCredits += subject.getCredits();
                 }
-                netProduct += global.getStudent().getCumulativeGradePointAverage() * global.getStudent().getCreditsEarned();
-                totalCredits += global.getStudent().getCreditsEarned();
-                double gpa = (double) netProduct / totalCredits;
-                global.getStudent().setCumulativeGradePointAverage(gpa);
-                Intent intent = new Intent(getApplicationContext(), com.academy.semtrac.SemesterResults.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                if (allCool) {
+                    netProduct += global.getStudent().getCumulativeGradePointAverage() * global.getStudent().getCreditsEarned();
+                    totalCredits += global.getStudent().getCreditsEarned();
+                    double gpa = (double) netProduct / totalCredits;
+                    global.getStudent().setCumulativeGradePointAverage(gpa);
+                    Intent intent = new Intent(WrapUpSemester.this, com.academy.semtrac.SemesterResults.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
-                String SHARED_PREFS_FILE = "com.academy.semtrac.STUDENT_DATA";
-                SharedPreferences studentData = getSharedPreferences(SHARED_PREFS_FILE, 0);
-                SharedPreferences.Editor editor = studentData.edit();
-                editor.putBoolean("wrappedUp", true);
-                Gson gson = new Gson();
-                editor.putString("student", gson.toJson(global.getStudent()));
-                editor.apply();
+                    String SHARED_PREFS_FILE = "com.academy.semtrac.STUDENT_DATA";
+                    SharedPreferences studentData = getSharedPreferences(SHARED_PREFS_FILE, 0);
+                    SharedPreferences.Editor editor = studentData.edit();
+                    editor.putBoolean("wrappedUp", true);
+                    Gson gson = new Gson();
+                    editor.putString("student", gson.toJson(global.getStudent()));
+                    editor.apply();
 
-                startActivity(intent);
+                    startActivity(intent);
+                }
             }
         });
     }
