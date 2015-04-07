@@ -1,5 +1,7 @@
 package com.academy.semtrac;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -9,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
 
 
 public class HomeActivity extends ActionBarActivity {
@@ -30,6 +34,8 @@ public class HomeActivity extends ActionBarActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.subjectRecycleView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        getSupportActionBar().setLogo(R.drawable.ic_action_edit);
 
         mAdapter = new SubjectAdapter(student.getCurrentSemester().getSubjects(),
                 R.layout.subject_row_layout, this);
@@ -56,6 +62,32 @@ public class HomeActivity extends ActionBarActivity {
             return true;
         }
 
+        if (id == R.id.add_new_subject) {
+            Gson gson = new Gson();
+            String studentString = gson.toJson(student);
+            Intent intent = new Intent(this, com.academy.semtrac.SubjectAdderActivity.class);
+            intent.putExtra("student", studentString);
+            startActivityForResult(intent, 1);
+        }
+
+        if (id == R.id.wrap_up_semester) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Are you sure you want to wrap up this semester?");
+            builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    startActivity(new Intent(HomeActivity.this, com.academy.semtrac.WrapUpSemester.class));
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.create().show();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -63,5 +95,13 @@ public class HomeActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1)
+            mAdapter.notifyDataSetChanged();
     }
 }

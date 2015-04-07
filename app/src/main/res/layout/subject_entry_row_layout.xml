@@ -54,31 +54,6 @@
             android:textColor="@color/background_material_light"
             android:textColorHint="@color/background_material_light" />
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/entry_courseplan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/background_floating_material_dark"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="Import Course Plan"
-                android:textColor="@color/background_material_light" />
-
-            <TextView
-                android:id="@+id/entry_filename"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:text="None selected"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/background_material_light"
-                android:textSize="15sp" />
-        </LinearLayout>
     </LinearLayout>
 
 

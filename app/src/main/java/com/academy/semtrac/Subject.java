@@ -91,6 +91,21 @@ public class Subject {
         return totalClasses;
     }
 
+    public void setAttendedClasses(int attendedClasses) {
+        this.attendedClasses = attendedClasses;
+        attendancePercentage = attendedClasses * 100.0 / totalClasses;
+    }
+
+    public void setTotalClasses(int totalClasses) {
+        this.totalClasses = totalClasses;
+        attendancePercentage = attendedClasses * 100.0 / totalClasses;
+    }
+
+    public void setAttendedClasses(int attendedClasses) {
+        this.attendedClasses = attendedClasses;
+        attendancePercentage = attendedClasses * 100.0 / totalClasses;
+    }
+
     public int getAttendedClasses() {
         return attendedClasses;
     }

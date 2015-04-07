@@ -10,50 +10,50 @@
     android:paddingTop="25dp"
     tools:context="com.example.anant.semtrac.NewTest">
 
-        <EditText
-            android:id="@+id/testName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="15dp"
-            android:ems="10"
-            android:hint="Test Name"
-            android:inputType="textCapWords"
-            android:textColor="@color/background_floating_material_dark" />
+    <EditText
+        android:id="@+id/testName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+        android:hint="Test Name"
+        android:inputType="textCapWords"
+        android:textColor="@color/background_floating_material_dark" />
 
-        <EditText
-            android:id="@+id/testWeightage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="15dp"
-            android:ems="10"
-            android:hint="Weightage (in %)"
-            android:inputType="number"
-            android:textColor="@color/background_floating_material_dark" />
+    <EditText
+        android:id="@+id/testWeightage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+        android:hint="Weightage (in %)"
+        android:inputType="numberDecimal"
+        android:textColor="@color/background_floating_material_dark" />
 
-        <EditText
-            android:id="@+id/testMaxMarks"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="15dp"
-            android:ems="10"
-            android:hint="Maximum Marks"
-            android:inputType="number"
-            android:textColor="@color/background_floating_material_dark" />
+    <EditText
+        android:id="@+id/testMaxMarks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+        android:hint="Maximum Marks"
+        android:inputType="numberDecimal"
+        android:textColor="@color/background_floating_material_dark" />
 
 
-        <EditText
-            android:id="@+id/testMarksObtained"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="15dp"
-            android:ems="10"
-            android:hint="Marks Obtained"
-            android:inputType="number"
-            android:textColor="@color/background_floating_material_dark" />
+    <EditText
+        android:id="@+id/testMarksObtained"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+        android:hint="Marks Obtained"
+        android:inputType="numberDecimal"
+        android:textColor="@color/background_floating_material_dark" />
 
 
     <LinearLayout

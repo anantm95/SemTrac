@@ -58,7 +58,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
         android:background="@color/background_floating_material_dark"
-        android:text="Enter test details"
+        android:text="Enter Test Details"
         android:textColor="@color/background_material_light" />
 
     <Button

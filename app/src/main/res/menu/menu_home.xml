@@ -22,9 +22,4 @@
         android:title="@string/wrap_up_semester"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/add_new_semester"
-        android:orderInCategory="110"
-        android:title="@string/add_new_semester"
-        app:showAsAction="never" />
 </menu>

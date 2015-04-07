@@ -1,6 +1,7 @@
 package com.academy.semtrac;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +27,7 @@ public class ModifyAttendance extends CustomActivity {
         global = (GlobalClass) getApplication();
         views = new ArrayList<>();
         for (final Subject subject : global.getStudent().getCurrentSemester().getSubjects()) {
-            View cardView = inflater.inflate(R.layout.row_modify_attendance, mLayout, false);
+            final View cardView = inflater.inflate(R.layout.row_modify_attendance, mLayout, false);
             final Button subjectCodeAndName = (Button) cardView.findViewById(R.id.subjectCodeAndName);
             String name = subject.getName();
             if (name.length() > 3) {
@@ -53,15 +54,46 @@ public class ModifyAttendance extends CustomActivity {
             classAttended.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if (subject.getAttendedClasses() < subject.getTotalClasses())
                     subject.incrementAttended();
                     subjectCodeAndName.setText(finalName + " : " + subject.getAttendedClasses() + "/" + subject.getTotalClasses());
                 }
             });
+
+            subjectCodeAndName.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    global.setCurrentSubject(subject);
+                    startActivityForResult(new Intent(ModifyAttendance.this, EditAttendance.class), views.indexOf(cardView));
+                    return false;
+                }
+            });
+
             views.add(cardView);
             mLayout.addView(cardView);
 
         }
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Subject subject = global.getCurrentSubject();
+        String name = subject.getName();
+        if (name.length() > 3) {
+            String[] things = name.split(" ");
+            name = "";
+            for (String temp : things) {
+                name += temp.charAt(0);
+            }
+            if (things[things.length - 1].compareToIgnoreCase("Lab") == 0) {
+                name = name.substring(0, name.length() - 1) + " Lab";
+            }
+        }
+        Button changed = (Button) views.get(requestCode).findViewById(R.id.subjectCodeAndName);
+        changed.setText(name + " : " + subject.getAttendedClasses() + "/" + subject.getTotalClasses());
     }
 }
 

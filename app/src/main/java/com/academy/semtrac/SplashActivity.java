@@ -35,7 +35,10 @@ public class SplashActivity extends Activity {
                 if (firstTimeUse) {
                     intent = new Intent(SplashActivity.this, com.academy.semtrac.FirstRunActivity.class);
                 } else {
-                    intent = new Intent(SplashActivity.this, com.academy.semtrac.HomeActivity.class);
+                    if (!wrappedUp())
+                        intent = new Intent(SplashActivity.this, com.academy.semtrac.HomeActivity.class);
+                    else
+                        intent = new Intent(SplashActivity.this, com.academy.semtrac.SemesterResults.class);
                 }
                 startActivity(intent);
                 finish();
@@ -56,5 +59,11 @@ public class SplashActivity extends Activity {
         } else {
             return true;
         }
+    }
+
+    private boolean wrappedUp() {
+        String SHARED_PREFS_FILE = "com.academy.semtrac.STUDENT_DATA";
+        SharedPreferences studentData = getSharedPreferences(SHARED_PREFS_FILE, 0);
+        return studentData.getBoolean("wrappedUp", false);
     }
 }

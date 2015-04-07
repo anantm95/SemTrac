@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.academy.semtrac">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".GlobalClass"
         android:allowBackup="true"
@@ -37,10 +39,19 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ModifyAttendance"
-            android:label="@string/title_activity_modify_attendance"></activity>
+            android:label="@string/title_activity_modify_attendance" />
         <activity
             android:name=".ViewTests"
-            android:label="@string/title_activity_view_tests"></activity>
+            android:label="@string/title_activity_view_tests" />
+        <activity
+            android:name=".SemesterResults"
+            android:label="@string/title_activity_semester_result"></activity>
+        <activity
+            android:name=".WrapUpSemester"
+            android:label="@string/title_activity_wrap_up_semester"></activity>
+        <activity
+            android:name=".EditAttendance"
+            android:label="@string/title_activity_edit_attendance"></activity>
     </application>
 
 </manifest>
