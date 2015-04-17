@@ -22,5 +22,7 @@
     <string name="title_activity_semester_result">Result</string>
     <string name="title_activity_wrap_up_semester">Enter Grades</string>
     <string name="title_activity_edit_attendance">Edit Attendance</string>
+    <string name="title_activity_new_semester">NewSemester</string>
+    <string name="title_activity_add_new_semester">AddNewSemester</string>
 
 </resources>

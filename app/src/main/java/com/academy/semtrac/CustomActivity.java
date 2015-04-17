@@ -23,6 +23,6 @@ public class CustomActivity extends ActionBarActivity {
         SharedPreferences studentData = getSharedPreferences(SHARED_PREFS_FILE, 0);
         SharedPreferences.Editor editor = studentData.edit();
         editor.putString("student", studentString);
-        editor.commit();
+        editor.apply();
     }
 }

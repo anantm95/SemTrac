@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class WrapUpSemester extends ActionBarActivity {
 
     LinearLayout mLayout;
-    double netProduct, totalCredits;
+    double netProductCGPA, netProductSGPA, totalCreditsCGPA, totalCreditsSGPA;
     private LayoutInflater inflater;
     private ArrayList<View> views;
     private GlobalClass global;
@@ -55,14 +55,16 @@ public class WrapUpSemester extends ActionBarActivity {
                     }
                     subject.setGrade(Integer.parseInt(grade.getText().toString().trim()));
 
-                    netProduct += subject.getCredits() * subject.getGrade();
-                    totalCredits += subject.getCredits();
+                    netProductSGPA += subject.getCredits() * subject.getGrade();
+                    totalCreditsSGPA += subject.getCredits();
                 }
                 if (allCool) {
-                    netProduct += global.getStudent().getCumulativeGradePointAverage() * global.getStudent().getCreditsEarned();
-                    totalCredits += global.getStudent().getCreditsEarned();
-                    double gpa = (double) netProduct / totalCredits;
-                    global.getStudent().setCumulativeGradePointAverage(gpa);
+                    netProductCGPA = netProductSGPA + global.getStudent().getCumulativeGradePointAverage() * global.getStudent().getCreditsEarned();
+                    totalCreditsCGPA = totalCreditsSGPA + global.getStudent().getCreditsEarned();
+                    double cgpa = (double) netProductCGPA / totalCreditsCGPA;
+                    double sgpa = (double) netProductSGPA / totalCreditsSGPA;
+                    global.getStudent().setCumulativeGradePointAverage(cgpa);
+                    global.getStudent().getCurrentSemester().setGradePointAverage(sgpa);
                     Intent intent = new Intent(WrapUpSemester.this, com.academy.semtrac.SemesterResults.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
