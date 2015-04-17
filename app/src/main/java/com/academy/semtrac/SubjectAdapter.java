@@ -14,9 +14,7 @@ import com.google.gson.Gson;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-/*
- * Created by Abhishek Shanthkumar on 05-04-2015.
- */
+
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHolder> {
 
     private ArrayList<Subject> subjects;
