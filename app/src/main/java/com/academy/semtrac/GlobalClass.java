@@ -3,9 +3,7 @@ package com.academy.semtrac;
 import android.app.Application;
 import android.widget.EditText;
 
-/*
- * Created by Abhishek Shanthkumar on 17-03-2015.
- */
+
 
 public class GlobalClass extends Application {
     private Student student;
