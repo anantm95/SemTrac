@@ -5,9 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 
 import com.google.gson.Gson;
 
-/*
- * Created by Abhishek Shanthkumar on 07-04-2015.
- */
+
 public class CustomActivity extends ActionBarActivity {
     private GlobalClass global;
 
